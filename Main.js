@@ -24,5 +24,3 @@ window.addEventListener( 'DOMContentLoaded', function() {
 			break;
 	}
 }, false );
-
-console.log( 'CloudPreview enabled' )
