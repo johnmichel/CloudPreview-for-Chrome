@@ -15,7 +15,10 @@
 	<key>CFBundleVersion</key>
 	<string>1</string>
 	<key>Chrome</key>
-	<dict/>
+	<dict>
+		<key>Global Page</key>
+		<string>Main.html</string>
+	</dict>
 	<key>Content</key>
 	<dict>
 		<key>Scripts</key>
@@ -25,6 +28,14 @@
 				<string>Main.js</string>
 			</array>
 		</dict>
+		<key>Stylesheets</key>
+		<array>
+			<string>Main.css</string>
+		</array>
+		<key>Whitelist</key>
+		<array>
+			<string>http://cl.ly/**</string>
+		</array>
 	</dict>
 	<key>Description</key>
 	<string>Enhances the cl.ly preview for media files.</string>
