@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+
+<script type="text/javascript" charset="utf-8">
+    safari.application.addEventListener( 'message', function( event ) {
+        if ( event.name != 'valueForSetting' ) {
+            return
+        }
+        
+        var key = event.message
+        var value = safari.extension.settings.getItem( key )
+
+        safari.application.activeBrowserWindow.activeTab.page.dispatchMessage( 'setValueForSetting', { 'key': key, 'value': value } )
+    }, false)
+
+    safari.extension.settings.addEventListener( 'change', function( event ) {
+        safari.application.activeBrowserWindow.activeTab.page.dispatchMessage( 'setValueForSetting', { 'key': event.key, 'value': event.newValue } )
+    }, false)
+</script>
