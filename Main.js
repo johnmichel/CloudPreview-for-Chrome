@@ -1,14 +1,14 @@
-var useAutoZoom = true
-
-safari.self.tab.dispatchMessage( 'valueForSetting', 'autozoom' )
+var useAutoZoom = true;
+/*
+safari.self.tab.dispatchMessage('valueForSetting', 'autozoom');
 safari.self.addEventListener( 'message', function( event ) {
 	if ( event.name != 'setValueForSetting' || event.message.key != 'autozoom' ) {
-		return
+		return;
 	}
 	
-	useAutoZoom = event.message.value
-}, false )
-
+	useAutoZoom = event.message.value;
+}, false );
+*/
 window.addEventListener( 'DOMContentLoaded', function() {
 	var extensionPos = document.title.lastIndexOf('.')
 	if ( extensionPos ) {
@@ -61,10 +61,10 @@ window.addEventListener( 'DOMContentLoaded', function() {
 					return
 				}
 
-				window.clearInterval( imageSizeTimeout )
+				window.clearInterval(imageSizeTimeout);
 				
 				if ( firstElementInContainer.naturalWidth > self.innerWidth - 20 ) {
-					zoom.className = 'fitted'
+					zoom.className = 'fitted';
 					//firstElementInContainer.className = 'fitted'
 					firstElementInContainer.style.width = '100%';					
 				}
