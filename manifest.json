@@ -1,7 +1,7 @@
 {
     "name": "CloudPreview",
     "version": "1.0",
-    "description": "Enhances CloudApp browsing",
+    "description": "Enhances CloudApp browsing!",
     "permissions": [
         "tabs",
         "http://*/*",
@@ -10,8 +10,8 @@
     "content_scripts": [
 	 {
             "matches": ["http://cl.ly/*", "http://jhn.me/*"],
-            "css": ["Main.css"],
-			"js": ["Main.js"],
+            "css": ["cloudpreview.css"],
+			"js": ["cloudpreview.js"],
             "run_at": "document_start"
 	 }
     ]
