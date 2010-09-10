@@ -11,3 +11,5 @@ h1 { margin-bottom: 20px !important; }
 
 #container img { z-index: 10; /* -webkit-transition: width 1s linear; */ }
 #container img.fitted { width: 100%; }
+
+#container audio { width: 100%; }

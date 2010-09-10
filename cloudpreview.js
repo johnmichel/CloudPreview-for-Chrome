@@ -30,6 +30,7 @@ window.addEventListener('DOMContentLoaded', function() {
 			 case 'mp3':
 			 	var audioPlayer = document.createElement('audio');
 				audioPlayer.controls = true;
+				audioPlayer.preload = 'auto';
 				audioPlayer.src = document.querySelector('.download a').href;
 				
 				var container = document.querySelector('#container .item')
@@ -39,6 +40,7 @@ window.addEventListener('DOMContentLoaded', function() {
 			case 'ogg':
 			 	var audioPlayer = document.createElement('audio');
 				audioPlayer.controls = true;
+				audioPlayer.preload = 'auto';
 				audioPlayer.src = document.querySelector('.download a').href;
 				
 				var container = document.querySelector('#container .item')
