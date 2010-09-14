@@ -1,15 +1,14 @@
 {
     "name": "CloudPreview",
-    "version": "1.15",
+    "version": "1.20",
     "description": "Enhances CloudApp browsing!",
     "permissions": [
-        "tabs",
         "http://*/*",
         "https://*/*"
     ],
     "content_scripts": [
 	 {
-            "matches": ["http://cl.ly/*", "http://jhn.me/*"],
+            "matches": ["http://*/*"],
             "css": ["cloudpreview.css"],
 			"js": ["cloudpreview.js"],
             "run_at": "document_start"

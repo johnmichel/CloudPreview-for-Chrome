@@ -1,5 +1,5 @@
-var useAutoZoom = true;
 /*
+var useAutoZoom = true;
 safari.self.tab.dispatchMessage('valueForSetting', 'autozoom');
 safari.self.addEventListener('message', function(event) {
 	if (event.name != 'setValueForSetting' || event.message.key != 'autozoom') {
@@ -10,48 +10,55 @@ safari.self.addEventListener('message', function(event) {
 }, false);
 */
 window.addEventListener('DOMContentLoaded', function() {
-	var extensionPos = document.title.lastIndexOf('.');
-	if (extensionPos) {
-		var extension = document.title.substr(extensionPos + 1);
-		switch (extension) {
-			case 'mov':
-				var videoPlayer = document.createElement('video');
-				videoPlayer.controls = true;
-				videoPlayer.src = document.querySelector('.download a').href;
-
-				videoPlayer.addEventListener('loadedmetadata', function() {
-					document.getElementById('wrapper').style.width = (this.videoWidth + 74) + 'px'
-				}, false);
+	var metaList = document.getElementsByTagName('meta');
+	var i = -1, n = metaList.length;
+	for (i; ++i < n;)
+		if (metaList[i].name === 'author')
+			if (metaList[i].content === 'CloudApp')
+			{
+				var extensionPos = document.title.lastIndexOf('.');
+				if (extensionPos) {
+					var extension = document.title.substr(extensionPos + 1);
+					switch (extension) {
+						case 'mov':
+							var videoPlayer = document.createElement('video');
+							videoPlayer.controls = true;
+							videoPlayer.src = document.querySelector('.download a').href;
 			
-				var container = document.querySelector('#container .item')
-				container.appendChild(videoPlayer)
-				return;
-				
-			 case 'mp3':
-			 	var audioPlayer = document.createElement('audio');
-				audioPlayer.controls = true;
-				audioPlayer.preload = 'auto';
-				audioPlayer.src = document.querySelector('.download a').href;
-				
-				var container = document.querySelector('#container .item')
-				container.appendChild(audioPlayer);
-				return;
-				
-			case 'ogg':
-			 	var audioPlayer = document.createElement('audio');
-				audioPlayer.controls = true;
-				audioPlayer.preload = 'auto';
-				audioPlayer.src = document.querySelector('.download a').href;
-				
-				var container = document.querySelector('#container .item')
-				container.appendChild(audioPlayer);
-				return;
-				
-			default:
-				// do nothing
-				break;
+							videoPlayer.addEventListener('loadedmetadata', function() {
+								document.getElementById('wrapper').style.width = (this.videoWidth + 74) + 'px'
+							}, false);
+						
+							var container = document.querySelector('#container .item')
+							container.appendChild(videoPlayer)
+							return;
+							
+						 case 'mp3':
+							var audioPlayer = document.createElement('audio');
+							audioPlayer.controls = true;
+							audioPlayer.preload = 'auto';
+							audioPlayer.src = document.querySelector('.download a').href;
+							
+							var container = document.querySelector('#container .item')
+							container.appendChild(audioPlayer);
+							return;
+							
+						case 'ogg':
+							var audioPlayer = document.createElement('audio');
+							audioPlayer.controls = true;
+							audioPlayer.preload = 'auto';
+							audioPlayer.src = document.querySelector('.download a').href;
+							
+							var container = document.querySelector('#container .item')
+							container.appendChild(audioPlayer);
+							return;
+							
+						default:
+							// do nothing
+							break;
+				}
+			}
 		}
-	}
 	
 	var firstElementInContainer = document.querySelector('#container > *:first-of-type');
 	if ('IMG' == firstElementInContainer.tagName) {
